@@ -24,6 +24,13 @@ ghjwt -iss 1234 -pem path/to/private/key.pem
 
 This defaults to generating a valid token that expires 10 minutes from now. Use the `-dur` option to specify how long the JWT should be valid for, or set `-exp` with the specific unixtime expiration time for the key.
 
+## Example
+
+``` shell
+jwt=$(ghjwt -iss 1234 -pem path/to/private/key/pem)
+curl -i -H "Authorization: Bearer $jwt" -H "Accept: application/vnd.github.machine-man-preview+json" https://api.github.com/app
+```
+
 ## License
 
 Copyright 2018 Matt Todd
